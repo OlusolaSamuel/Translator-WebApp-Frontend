@@ -12,7 +12,7 @@ export default function TextTranslator() {
 const baseUrl= process.env.NEXT_PUBLIC_API_BASE_URL
   const handleTranslate = async () => {
     try {
-      const response = await axios.post(`${baseUrl}/text-translate/`, {
+      const response = await axios.post(`https://translator-web-app-backend-2.onrender.com/text-translate/`, {
         text,
         source_lang: inputLang,
         target_lang: outputLang,
