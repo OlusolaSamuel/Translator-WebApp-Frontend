@@ -9,16 +9,16 @@ export default function TextTranslator() {
   const [translatedText, setTranslatedText] = useState("");
   const [inputLang, setInputLang] = useState("en");
   const [outputLang, setOutputLang] = useState("es");
-const baseUrl= process.env.NEXT_PUBLIC_API_BASE_URL
+const API_BASE_URL= process.env.NEXT_PUBLIC_API_BASE_URL
   const handleTranslate = async () => {
     try {
-      const response = await axios.post(`https://translator-web-app-backend-2.onrender.com/text-translate/`, {
+      const response = await axios.post(`${API_BASE_URL}/text-translate/`, {
         text,
         source_lang: inputLang,
         target_lang: outputLang,
       });
       setTranslatedText(response.data.translated_text);
-      const audio = new Audio(`https://translator-web-app-backend-2.onrender.com/audio/${response.data.audio_file}`);
+      const audio = new Audio(`${API_BASE_URL}/audio/${response.data.audio_file}`);
       audio.play();
     } catch (error) {
       console.error("Translation failed", error);

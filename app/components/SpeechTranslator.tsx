@@ -11,7 +11,7 @@ export default function SpeechTranslator() {
   const [recording, setRecording] = useState<boolean>(false);
   const [recognizedText, setRecognizedText] = useState<string>("");
   const [SpeechRecognitionAPI, setSpeechRecognitionAPI] = useState<any>(null);
-  const baseUrl= process.env.NEXT_PUBLIC_API_BASE_URL
+  const API_BASE_URL= process.env.NEXT_PUBLIC_API_BASE_URL
 
   // Ensure SpeechRecognition is only accessed in the browser
   useEffect(() => {
@@ -57,7 +57,7 @@ export default function SpeechTranslator() {
     }
   
     try {
-      const response = await axios.post(`${baseUrl}/text-translate/`, {
+      const response = await axios.post(`${API_BASE_URL}/text-translate/`, {
         text,
         source_lang: inputLang,
         target_lang: outputLang,
@@ -66,7 +66,7 @@ export default function SpeechTranslator() {
       setTranslatedText(response.data.translated_text);
       
       if (response.data.audio_file) {
-        const audioUrl = `https://translator-web-app-backend-2.onrender.com/audio/${response.data.audio_file}?t=${new Date().getTime()}`; 
+        const audioUrl = `${API_BASE_URL}audio/${response.data.audio_file}?t=${new Date().getTime()}`; 
         
         const audio = new Audio(audioUrl);
         audio.load(); // Force reload of new audio file
