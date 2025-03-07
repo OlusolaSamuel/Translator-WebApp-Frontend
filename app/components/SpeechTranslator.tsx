@@ -6,10 +6,10 @@ import LanguageSelector from "./LanguageSelector";
 
 export default function SpeechTranslator() {
   const [translatedText, setTranslatedText] = useState("");
-  const [inputLang, setInputLang] = useState("en");
-  const [outputLang, setOutputLang] = useState("es");
-  const [recording, setRecording] = useState(false);
-  const [recognizedText, setRecognizedText] = useState("");
+  const [inputLang, setInputLang] = useState<string>("en");
+  const [outputLang, setOutputLang] = useState<string>("es");
+  const [recording, setRecording] = useState<boolean>(false);
+  const [recognizedText, setRecognizedText] = useState<string>("");
   const [SpeechRecognitionAPI, setSpeechRecognitionAPI] = useState<any>(null);
 
   // Ensure SpeechRecognition is only accessed in the browser
