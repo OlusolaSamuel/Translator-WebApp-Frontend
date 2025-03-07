@@ -62,11 +62,11 @@ export default function SpeechTranslator() {
         source_lang: inputLang,
         target_lang: outputLang,
       });
-  
+   
       setTranslatedText(response.data.translated_text);
       
       if (response.data.audio_file) {
-        const audioUrl = `${baseUrl}/audio/${response.data.audio_file}?t=${new Date().getTime()}`; 
+        const audioUrl = `https://translator-web-app-backend-2.onrender.com/audio/${response.data.audio_file}?t=${new Date().getTime()}`; 
         
         const audio = new Audio(audioUrl);
         audio.load(); // Force reload of new audio file

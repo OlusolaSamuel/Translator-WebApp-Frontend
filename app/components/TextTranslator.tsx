@@ -18,7 +18,7 @@ const baseUrl= process.env.NEXT_PUBLIC_API_BASE_URL
         target_lang: outputLang,
       });
       setTranslatedText(response.data.translated_text);
-      const audio = new Audio(`${baseUrl}/audio/${response.data.audio_file}`);
+      const audio = new Audio(`https://translator-web-app-backend-2.onrender.com/audio/${response.data.audio_file}`);
       audio.play();
     } catch (error) {
       console.error("Translation failed", error);
