@@ -1,36 +1,60 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+Project Structure:
 
-## Getting Started
+/backend
+  ├── main.py            # FastAPI backend logic
+  ├── requirements.txt   # Dependencies
+  ├── uploads/           # Stores uploaded audio files
+  ├── outputs/           # Stores processed and encrypted audio files
+  ├── .env               # Environment variables
 
-First, run the development server:
+/frontend
+  ├── components/
+  │   ├── TextTranslator.tsx     # Text translation component
+  │   ├── SpeechTranslator.tsx   # Speech translation component
+  │   ├── LanguageSelector.tsx   # Dropdown for language selection
+  ├── pages/
+  │   ├── index.tsx              # Main UI combining all components
+  ├── styles/global.css          # App styling
+  ├── package.json               # Frontend dependencies
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+AI Tools Used:
+Google Translate API: Translates text from one language to another.
+gTTS (Google Text-to-Speech): Converts translated text into speech audio.
+SpeechRecognition (Google Web Speech API): Converts spoken language to text.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
 
-## Learn More
+Security Considerations:
+Encryption: Audio files are encrypted before storage and decrypted upon retrieval.
+CORS Handling: Configured to allow secure cross-origin requests between frontend and backend.
+Environment Variables: Sensitive keys stored securely using .env files (not committed to Git).
 
-To learn more about Next.js, take a look at the following resources:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+📝 User Guide:
+Features
+✅ Text Translation: Enter text, select input and output languages, get translated text and speech.
+✅ Speech Translation: Speak into the app, transcribe, translate, and listen to the translated speech.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+How to Use:
+Choose Input Type → Select “Text Input” or “Speech Input.”
+Select Languages → Choose the source and target languages.
+Translate
+For text: Enter text and click Translate & Play Audio.
+For speech: Click Speak Now, say something, and wait for translation & playback.
 
-## Deploy on Vercel
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+🎤 Presentation :
+Approach
+Built with FastAPI (Backend) and Next.js (Frontend) for speed & scalability.
+Uses Generative AI for translation & speech synthesis, ensuring real-time and natural communication.
+Security-first approach with encrypted audio storage.
+How Generative AI is Used
+Google Translate API: Enables multi-language support for seamless communication.
+Speech-to-Text AI: Automatically converts spoken language into written text.
+Text-to-Speech AI: Generates natural-sounding audio responses for translations.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+
+🚀 Deployment:
+Frontend: Hosted on Vercel
+Backend: Deployed on Render
